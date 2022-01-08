@@ -174,6 +174,9 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        // Yoeunes\Toastr\ToastrServiceProvider::class,
+        // Brian2694\Toastr\ToastrServiceProvider::class,
+        Yoeunes\Toastr\ToastrServiceProvider::class
 
     ],
 
@@ -229,6 +232,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        // 'Toastr'  => Brian2694\Toastr\Facades\Toastr::class,
 
     ],
 

@@ -15,6 +15,7 @@
         <table class="table">
             <thead>
                 <tr>
+                    <th>Serial Num.</th>
                     <th>ID</th>
                     <th>Name</th>
                     <th>Parent</th>
@@ -23,11 +24,12 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($categories as $category)                
+                @foreach($categories as $index=>$category)                
                 <tr>
+                    <td>{{ $index }}</td>
                     <td>{{ $category->id }}</td>
                     <td>{{ $category->name }}</td>
-                    <td>{{ $category->parent_id }}</td>
+                    <td>{{ $category->parent_name }}</td>
                     <td>{{ $category->created_at }}</td>
                     <td>
                         <a href="{{ route('dashboard.categories.edit', [$category->id]) }}" class="btn btn-sm btn-outline-success">Edit</a>

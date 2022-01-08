@@ -9,46 +9,22 @@
 @endsection
 
 @section('content')
+{{-- 
+@if($errors->any())
+<div class="alert alert-danger">
+    <ul>
+        @foreach($errors->all() as $error)
+        <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</div>
+@endif
+--}}
 
 <form action="{{ route('dashboard.categories.post') }}" method="post">
-    @csrf
-    <div class="row">
-        <div class="col-md-8">
-            <div class="form-group mb-3">
-                <label for="name">Category Name</label>
-                <input type="text" name="name" class="form-control" id="name">
-            </div>
-
-            <div>
-                <label for="parent_id">Category Parent</label>
-                <select name="parent_id" id="parent_id" class="form-control">
-                    <option value="">No Parent</option>
-                    @foreach($parents as $parent)
-                    <option value="{{ $parent->id }}">{{ $parent->name }}</option>
-                    @endforeach
-                </select>
-            </div>
-
-            <div class="form-group mb-3">
-                <label for="description">Description</label>
-                <textarea name="description" class="form-control" id="description"></textarea>
-            </div>
-
-            <div class="form-group mb-3">
-                <button type="submit" class="btn btn-primary">Create</button>
-                <a href="{{ route('dashboard.categories.index') }}" class="btn btn-light">Cancel</a>
-            </div>
-        </div>
-
-        <div class="col-md-4">
-            <div class="form-group mb-3">
-                <label for="image">Thumbnail</label>
-                <input type="file" name="image" class="form-control" id="image">
-            </div>
-        </div>
-    </div>
-
-
+    @include('dashboard.categories.shared.form',[
+        'button' => 'Create'
+    ])
 </form>
 
 @endsection
